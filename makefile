@@ -1,16 +1,18 @@
 CC=gcc
+DEBUGGER=gdb
 CFLAGS=-Wall -v
+EXE=main.out
 
 build:
-	$(CC) $(CFLAGS) main.c -o main.out
+	$(CC) $(CFLAGS) main.c -o $(EXE)
 
 run:
 	./main.out
 
 debug:
-	gdb main.out
+	$(DEBUGGER) $(EXE)
 
 .PHONY: clean
 
 clean:
-	rm -rf *.out
+	rm -rf $(EXE)
